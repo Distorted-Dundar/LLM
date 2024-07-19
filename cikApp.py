@@ -15,7 +15,6 @@ class secEdgar():
         self.populate_dicts()
 
     def populate_dicts(self):
-
         for _, value in self.response_json.items():
             cik_id = value["cik_str"]
             company_name = value["title"]
@@ -23,6 +22,12 @@ class secEdgar():
 
             self.named_dict[company_name] = cik_id
             self.ticker_dict[ticker] = cik_id
+
+    def name_to_cik(self) -> list[tuple[str, int]]:
+        return [self.named_dict.items()]
+
+    def ticker_to_cik(self) -> list[tuple[str, int]]:
+        return [self.ticker_dict.items()]
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import requests
 from collections import namedtuple
+import os
 
 Sec = namedtuple('Sec', ['name', 'ticker', 'cik_id'])
 
@@ -12,7 +13,7 @@ class secEdgar():
         self.ticker_dict = {}
         self.cik_dict = {}
 
-        headers = {'user-agent': 'MLT BF bflo2857@gmail.com'}
+        headers = {'user-agent': os.environ["USER_AGENT"]}
         response = requests.get(url=self.file_url, headers=headers)
 
         self.response_json = response.json()
